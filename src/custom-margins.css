@@ -1,0 +1,14 @@
+@page {
+  size: A4;
+  margin: 15mm; /* Default margin */
+}
+
+@page :left {
+  margin-left: 25mm; /* Custom left margin for odd pages */
+  margin-right: 15mm; /* Custom right margin for odd pages */
+}
+
+@page :right {
+  margin-left: 15mm; /* Custom left margin for even pages */
+  margin-right: 25mm; /* Custom right margin for even pages */
+}
