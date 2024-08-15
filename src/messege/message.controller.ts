@@ -48,4 +48,11 @@ export class MessageController {
   async getContacts(@RequestUser() user: CustomerUser): Promise<ContactDTO[]> {
     return await this.messageService.getContacts(user.customerId);
   }
+
+  @UseGuards(CustomerJwtAuthGuard)
+  @ApiBearerAuth()
+  @Get('all/contacts')
+  async getAllContacts(): Promise<ContactDTO[]> {
+    return await this.messageService.getAllContacts();
+  }
 }
