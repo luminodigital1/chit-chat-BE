@@ -137,4 +137,18 @@ export class MessageService {
     });
     return query.rows;
   }
+
+  async getAllContacts(): Promise<ContactDTO[]> {
+    const contacts = await this.db.query({
+      text: `select 
+        id as "customerId",
+        first_name || ' ' || last_name as "name",
+        cell_phone as "cellphone",
+        email
+        from customer 
+        `,
+      values: [],
+    });
+    return contacts.rows;
+  }
 }
